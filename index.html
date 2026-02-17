@@ -3,12 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProtecPest Dedetização</title>
+<title>Controle Total Dedetização</title>
 
 <style>
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
 margin:0;
@@ -18,7 +16,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* FUNDO LUXUOSO */
+/* FUNDO PREMIUM */
 body::before{
 content:"";
 position:fixed;
@@ -71,12 +69,10 @@ nav a{
 color:white;
 text-decoration:none;
 margin-left:25px;
-opacity:.8;
+opacity:.85;
 }
 
-nav a:hover{
-opacity:1;
-}
+nav a:hover{opacity:1;}
 
 /* HERO */
 .hero{
@@ -96,7 +92,7 @@ text-shadow:0 0 20px rgba(212,175,55,0.4);
 }
 
 .hero p{
-opacity:.85;
+opacity:.9;
 max-width:650px;
 }
 
@@ -164,7 +160,7 @@ border-radius:12px;
 opacity:.9;
 }
 
-/* FORMULÁRIO */
+/* FORM */
 input, textarea{
 width:90%;
 max-width:400px;
@@ -223,38 +219,47 @@ box-shadow:0 0 15px #00ff00;
 <body>
 
 <nav>
-<div class="logo"><div class="shield"></div> PROTEcPEST</div>
+<div class="logo"><div class="shield"></div> Controle Total</div>
 <div>
 <a href="#">Início</a>
 <a href="#servicos">Serviços</a>
 <a href="#depoimentos">Depoimentos</a>
+<a href="#localizacao">Localização</a>
 <a href="#contato">Contato</a>
 </div>
 </nav>
 
 <section class="hero">
 <h1>Ambiente Protegido. Família Segura.</h1>
-<p>Eliminamos pragas com tecnologia moderna e produtos seguros, garantindo proteção total para sua casa ou empresa.</p>
+<p>Eliminamos pragas com tecnologia moderna e produtos seguros.</p>
 <button class="btn" onclick="spray()">Aplicar Proteção</button>
 </section>
 
 <section id="servicos" class="section">
 <h2>Serviços</h2>
 <div class="services">
-<div class="card">Residências</div>
-<div class="card">Comércios</div>
-<div class="card">Condomínios</div>
-<div class="card">Indústrias</div>
+<div class="card">Baratas</div>
+<div class="card">Cupins</div>
+<div class="card">Formigas</div>
+<div class="card">Ratos</div>
 </div>
 </section>
 
 <section id="depoimentos" class="section">
 <h2>Clientes Satisfeitos</h2>
 <div class="testimonials">
-<div class="testimonial">“Serviço rápido e eficiente. Nunca mais tive problemas!” ⭐⭐⭐⭐⭐</div>
-<div class="testimonial">“Profissionais de verdade. Recomendo muito.” ⭐⭐⭐⭐⭐</div>
-<div class="testimonial">“Atendimento rápido e preço justo.” ⭐⭐⭐⭐⭐</div>
+<div class="testimonial">“Serviço rápido e eficiente!” ⭐⭐⭐⭐⭐</div>
+<div class="testimonial">“Nunca mais tive problemas com pragas.” ⭐⭐⭐⭐⭐</div>
+<div class="testimonial">“Profissionais e atendimento rápido.” ⭐⭐⭐⭐⭐</div>
 </div>
+</section>
+
+<section id="localizacao" class="section">
+<h2>Nossa Localização</h2>
+<iframe 
+src="https://www.google.com/maps?q=Brasil&output=embed"
+width="90%" height="300" style="border:0;border-radius:12px;">
+</iframe>
 </section>
 
 <section id="contato" class="section">
@@ -265,11 +270,16 @@ box-shadow:0 0 15px #00ff00;
 <br>
 <textarea placeholder="Descreva o problema"></textarea>
 <br>
-<button class="btn">Enviar Solicitação</button>
+<button class="btn" onclick="window.open('https://wa.me/556593396277?text=Olá%20quero%20um%20orçamento%20de%20dedetização')">
+Enviar pelo WhatsApp
+</button>
 </section>
 
-<a class="phone" href="tel:+559999999999">📞</a>
-<a class="whatsapp" href="https://wa.me/559999999999" target="_blank">💬</a>
+<a class="phone" href="tel:+556593396277">📞</a>
+
+<a class="whatsapp" 
+href="https://wa.me/556593396277?text=Olá%20quero%20um%20orçamento%20de%20dedetização" 
+target="_blank">💬</a>
 
 <script>
 const bugs=[];
