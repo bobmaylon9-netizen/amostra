@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProtecPest Dedetização</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0b0b0b;
+    color:white;
+    overflow:hidden;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#d4af37;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    opacity:.8;
+}
+
+nav a:hover{
+    opacity:1;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    margin-top:100px;
+}
+
+.hero h1{
+    font-size:48px;
+    color:#d4af37;
+}
+
+.hero p{
+    opacity:.7;
+    margin-top:10px;
+}
+
+.btn{
+    background:#d4af37;
+    color:black;
+    padding:12px 28px;
+    border:none;
+    margin-top:25px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* SERVIÇOS */
+.services{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:80px;
+}
+
+.card{
+    border:2px solid #d4af37;
+    border-radius:50%;
+    width:160px;
+    height:160px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    background:#d4af37;
+    color:black;
+}
+
+/* INSETOS */
+.bug{
+    position:absolute;
+    font-size:30px;
+    pointer-events:none;
+    transition: transform 0.5s linear;
+}
+
+/* efeito morte */
+.dead{
+    animation: die 1s forwards;
+}
+
+@keyframes die{
+    0%{ transform: scale(1) rotate(0); opacity:1;}
+    100%{ transform: scale(0) rotate(720deg); opacity:0;}
+}
+
+/* efeito veneno */
+.poison{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:#00ff00;
+    border-radius:50%;
+    box-shadow:0 0 15px #00ff00;
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">PROTEcPEST</div>
+    <div>
+        <a href="#">Início</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Proteção Total Contra Pragas</h1>
+    <p>Dedetização profissional com tecnologia avançada e resultados garantidos.</p>
+    <button class="btn" onclick="spray()">Solicitar Orçamento</button>
+</section>
+
+<section class="services">
+    <div class="card">Residências</div>
+    <div class="card">Comércios</div>
+    <div class="card">Navios & Aeronaves</div>
+</section>
+
+<script>
+const bugs = [];
+const emojis = ["🪳","🕷","🐜"];
+
+function createBug(){
+    const bug = document.createElement("div");
+    bug.className = "bug";
+    bug.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+
+    bug.x = Math.random()*window.innerWidth;
+    bug.y = Math.random()*window.innerHeight;
+
+    bug.style.left = bug.x+"px";
+    bug.style.top = bug.y+"px";
+
+    document.body.appendChild(bug);
+    bugs.push(bug);
+}
+
+function moveBugs(){
+    bugs.forEach(bug=>{
+        bug.x += (Math.random()-0.5)*40;
+        bug.y += (Math.random()-0.5)*40;
+
+        bug.x = Math.max(0, Math.min(window.innerWidth, bug.x));
+        bug.y = Math.max(0, Math.min(window.innerHeight, bug.y));
+
+        bug.style.left = bug.x+"px";
+        bug.style.top = bug.y+"px";
+    });
+}
+
+function spray(){
+    bugs.forEach((bug, i)=>{
+        const poison = document.createElement("div");
+        poison.className="poison";
+        poison.style.left = bug.x+"px";
+        poison.style.top = bug.y+"px";
+
+        document.body.appendChild(poison);
+
+        setTimeout(()=>{
+            bug.classList.add("dead");
+            poison.remove();
+        },300);
+    });
+}
+
+for(let i=0;i<10;i++) createBug();
+setInterval(moveBugs, 600);
+</script>
+
+</body>
+</html>
